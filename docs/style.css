@@ -1,0 +1,193 @@
+@charset "UTF-8";
+html {
+    font-family: roman, 'times new roman', times, serif;
+    font-size: 16px;
+}
+body {
+    background-color: #B1AACE;
+    margin: 24px auto;
+    /* ws11/2/22: left margins are placed on containing element rather
+     *  than each individual.*/
+    /* ws11/4/22: left (and right) margins switched to auto to center
+     *  the body element */ 
+    max-width: 1024px;
+    overflow-x: hidden;
+}
+.Title {
+    text-align: center;
+    margin-top: 8px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    /*margin-left: 124px;*/
+    padding-top: 0px;
+    text-decoration: underline;
+}
+nav {
+    /*margin-left: 124px;*/
+    margin-right: auto;
+    /* margin-top: 160px; */
+    margin-bottom: auto;
+    text-align: center;
+    text-decoration: underline;
+}
+
+table { 
+    border-collapse: collapse;
+    border:.5vw solid #301934;
+    margin:auto;
+    
+}
+th, td {padding: 1em; }
+tr:nth-child(odd) {
+    background-color: #CCC6E6;
+    color: black; 
+    }
+
+li {padding: 1em; }
+li:nth-child(odd) {
+    background-color: #CCC6E6;
+    color: black; 
+    border-collapse: collapse;
+    border:.2vw solid #301934;
+    margin:auto;
+    }
+
+li:nth-child(even) {
+    background-color: #CCC6E6;
+    color: black; 
+    border-collapse: collapse;
+    border:.2vw solid #301934;
+    margin:auto;
+    }
+
+nav a {
+    padding: 0 14px;
+}
+/*.div {
+    float: left;
+    clear: right;
+    width: 99px;
+    border-width: thick;
+    text-align: center;
+}*/
+.subtit {
+    /*margin-left: 124px;*/
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    text-align: center;
+}
+.gal {
+    left: auto;
+    margin-left: 1055px;
+    background-color: #F6D286;
+    margin-right: 20px;
+    display: block;
+    margin-top: 22px;
+}
+.main {
+    display: flex;
+}
+.content {
+    margin-top: 0px;
+    /*margin-left: 124px;*/
+    margin-right: 0px;
+    background-color: #CCC6E6;    /* ws11/2/22: placing a min-width attribute here or on any children of .content elements is a bad idea. The flexibility it has is better than restricting it at a certain size. If the side gallery gets in the way we can  */
+}
+.content h3 {margin-left: .5rem;}
+.txt {
+    margin: 8px 12px;
+    padding-left: 11px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    padding-right: 11px;
+    background-color: #DAD4F3;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, .2);
+}
+.gallery {
+    margin-left: 12px;
+}
+.gcontain{
+    background-color: #CCC6E6;    
+}
+.image {
+    padding-left: 7px;
+    padding-right: 7px;
+    /*padding-bottom: 7px;*/
+    padding-top: 7px;
+    max-width: 216px;
+    min-width: 140px;
+}
+.view {
+    text-align: center;
+    margin-top: 2px;
+    padding-bottom: 6px;
+}
+
+.pers {
+    color: purple;
+}
+
+#contain {
+    display: flex;
+    margin: 2rem auto;
+    max-width: 1920px;
+}
+
+#text {
+    width: 40%;
+    padding: 0 1rem;
+}
+
+#images {
+    width: 60%;
+    padding: 0 1rem;
+}
+
+#images img {
+    min-width: 250px;
+    max-width: 100%;
+}
+
+.num {
+    padding: 0 .25rem;
+    font-weight: bold;
+}
+
+/* ! ws11/2/22: these media queries really dont work well. They don't pair well with the left margins. Both should be revised for a better look.*/
+
+@media (max-width: 1080px){
+    body {
+        margin: 2.25vw; /* ws11/2/22: Media query will help with responsiveness, giving room for smaller screens.*/
+    }
+    .image {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        margin: 12px;
+    }
+    .image {
+        width: 15vw;
+    }
+    #contain {
+        display: block;
+    }
+    #text {
+    width: unset;
+    
+}
+    #images {
+    width: unset;
+    margin: 1rem 0;
+}
+    /*.main {
+        display: block; 
+    }
+    .gallery {
+        display: flex;
+    }
+     * INPUT NEEDED ws11/2/22: On smaller screens .gallery takes up too much space. This can be solved by 1) moving the gallery below .content through this code or 2) scaling images so that they are responsive, we might be able to do something like .content but keep the scale rigid. */
+}

@@ -1,0 +1,45 @@
+start = doc 
+doc = element doc {header, body}
+#header will contain document information, body will contain the document text.
+
+header = element header {docTitle, docAuthor, docType, docDate, docMaterial*, listImages, notes*}
+listImages = element listImages {image+}
+image = element image {href, empty}
+href = attribute href {xsd:anyURI}
+
+docTitle = element docTitle {mixed{persName*}}
+#title of the document 
+docAuthor = element docAuthor {mixed{persName}}
+#author of the document 
+docType = element docType {text}
+#type of document 
+docDate = element docDate {when,text}
+#date the document was created/written
+docMaterial = element docMaterial {text}
+#material the document is made of/written on 
+notes = element notes {note+}
+#extra notes on the document, or writer of the document.
+note = element note {mixed{(persName | name | company)*}}
+
+body = element body {mixed{docHead, docHeadTable, persLine+}}
+docHeadTable = element docHeadTable {colHead+}
+colHead = element colHead {pos, text}
+pos = attribute pos {xsd:integer}
+
+docHead = element docHead {mixed{date}}
+persLine = element persLine {mixed{persName}}
+
+persName = element persName {xmlid, mixed{(title | name | date | address | company)*}}
+
+title = element title {text}
+name = element name {text}
+date = element date {when, text}
+address = element address {addLine*}
+addLine = element addLine {type, text}
+company = element company {text}
+
+when = attribute when {xsd:date | xsd:gYear | xsd:gYearMonth}
+#type attribute used to specify something unique about general element attributes 
+type = attribute type {text}
+#xml:id attribute used to tag identifier on persons
+xmlid = attribute xml:id {"GWW" | "WHJr" | "AW" | "BEC" | "MB" | "EWN" | "WPG" | "JCS" | "NAC" | "HCM" | "WMC" | "Emmet" | "ETK" | "HLK" | "HSO" | "CDK" | "ELK" | "IHK" | "HAA" | "RHA" | "LWB" | "Unknown"}
